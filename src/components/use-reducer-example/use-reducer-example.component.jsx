@@ -36,7 +36,7 @@ const setSearchQuery = queryString => ({
 
 const UseReducerExample = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  const { user, searchQuery } = state;
+  const { currentUser, searchQuery } = state;
 
   useEffect(() => {
     const fetchFunc = async () => {
@@ -57,11 +57,11 @@ const UseReducerExample = () => {
         value={searchQuery}
         onChange={event => dispatch(setSearchQuery(event.target.value))}
       />
-      {user ? (
+      {currentUser ? (
         <div>
-          <h3>{user.name}</h3>
-          <h3> {user.username} </h3>
-          <h3> {user.email} </h3>
+          <h3>{currentUser.name}</h3>
+          <h3> {currentUser.username} </h3>
+          <h3> {currentUser.email} </h3>
         </div>
       ) : (
         <p>No user found</p>
